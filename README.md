@@ -1,15 +1,17 @@
-imgSex
-======
+img2sext
+========
 Renders images into a set of UTF-8 sextant blocks (black and white
 only).
 
-The name *could* have been `imgSextantifer`, but that somehow seems
-worse.
-
 Usage
 -----
+```
+Usage: img2sext [-hiv] [-o FILE] IMAGEFILE
 
-`imgSex FILENAME`
+  -i    treat white pixels as black and black pixels as white
+  -o    send output to file instead of stdout
+  -h    print help and exit
+```
 
 Example
 -------
@@ -38,6 +40,6 @@ MATH BREAKTHROUGH: DIMENSIONAL ANALYSTS HAVE DISCOVERED A REAL UNIT
 CIRCLE. ONCE THEY MEASURE IT, UNITS CAN FINALLY BE ADDED TO ALL OUR
 GEOMETRY TEXTBOOKS.
 ```
-Requirements
+Dependencies
 ------------
 - imlib2

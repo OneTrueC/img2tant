@@ -1,16 +1,22 @@
+VERSION = 0.1
+
+PREFIX = /usr/local
+BINDIR = ${PREFIX}/bin
+
 INC = -I. -I/usr/include
 LIB = -lImlib2
+DEF = -DVERSION=\"${VERSION}\"
 
-CFLAGS = -Wall -Wextra -std=c99 -pedantic $(INC) -Os
-LDFLAGS = $(LIB) -s
+CFLAGS = -Wall -Wextra -std=c99 -pedantic ${INC} -Os ${DEF}
+LDFLAGS = ${LIB} -s
 
-all: imgSex
+all: img2sext
 
-imgSex: main.c
-	$(CC) $(CFLAGS) $(LDFLAGS) main.c -o $@
+img2sext: main.c
+	${CC} ${CFLAGS} ${LDFLAGS} main.c -o $@
 
-install:
-	install -m 755 imgSex /usr/local/bin/imgSex
+install: img2sext
+	cp img2sext ${BINDIR}/img2sext
 
 uninstall:
-	rm -f /usr/local/bin/imgSex
+	rm -f ${BINDIR}/img2sext
