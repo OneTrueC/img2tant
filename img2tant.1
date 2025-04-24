@@ -1,0 +1,50 @@
+.TH img2tant 1 "April 24, 2025" "VERSION" "convert images into sextant/octant \
+blocks"
+.SH NAME
+\fBimg2tant\fR \- utility to render images using sextant or octant blocks.
+.SH SYNOPSIS
+\fBimg2tant\fR [\fB-8\fR|\fB-6\fR] [\fB-hiv\fR] [\fB-o\fR \fIIMAGEFILE\fR]
+.SH DESCRIPTION
+\fBimg2tant\fR is a utility to render images using either sextant or octant
+blocks
+.LP
+By default white pixels are rendered as present blocks and black pixels as not
+present blocks. For pixels that are neither fully white nor fully black, the
+presence of a block is undefined.
+.LP
+If \fIIMAGEFILE\fR is `-', then the image is read from stdin.
+.SH OPTIONS
+.TP
+.B -6
+Force the use of sextant blocks
+.TP
+.B -8
+Force the use of octant blocks
+.TP
+.B -i
+Invert white and black pixels, so that blocks are present for black pixels and
+not for white pixels.
+.TP
+.B -o file
+Send output to file instead of stdout.
+.TP
+.B -v
+Show version information.
+.TP
+.B -h
+Show help.
+.TP
+.SH EXIT STATUS
+.TS
+allbox;
+lb rb
+l r.
+Return Code	Meaning
+1	unknown argument
+2	output file path not given
+3	image filename not given
+4	too many positional arguments
+5	failed to open image
+6	cannot open output file
+7	failed to create temporary file
+.TE
